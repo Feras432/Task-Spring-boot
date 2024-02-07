@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import com.example.demo.util.enums.Status;
+
 import javax.persistence.*;
 @Entity
 @Table(name = "bank_user")
@@ -15,7 +17,8 @@ public class UserEntity {
     private String email;
     @Column(name = "phonenumber", nullable = false)
     private String phonenumber;
-
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     public Long getId() {
         return id;
@@ -47,5 +50,13 @@ public class UserEntity {
 
     public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

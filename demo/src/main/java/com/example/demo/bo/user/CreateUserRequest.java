@@ -1,9 +1,18 @@
-package com.example.demo.user;
+package com.example.demo.bo.user;
 
 public class CreateUserRequest {
     private String name;
     private String email;
     private String phonenumber;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getName() {
         return name;
