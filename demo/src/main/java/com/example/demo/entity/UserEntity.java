@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.example.demo.util.enums.Roles;
 import com.example.demo.util.enums.Status;
 
 import javax.persistence.*;
@@ -13,12 +14,44 @@ public class UserEntity {
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "phone_number", nullable = false)
+    private String phonenumber;
     @Column(name = "email", nullable = false)
     private String email;
-    @Column(name = "phonenumber", nullable = false)
-    private String phonenumber;
+
     @Enumerated(EnumType.STRING)
     private Status status;
+    @Column(name = "user_name", nullable = false)
+    private String username;
+    @Column(name = "password", nullable = false)
+    private String password;
+    @OneToOne
+    @JoinColumn(name = "role_id")
+    private RoleEntity roles;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public RoleEntity getRoles() {
+        return roles;
+    }
+
+    public void setRoles(RoleEntity roles) {
+        this.roles = roles;
+    }
 
     public Long getId() {
         return id;

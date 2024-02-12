@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController("/API/A-Z/")
+@RestController
+@RequestMapping("/api/v1/user/")
 
 public class CodedController {
 
@@ -42,6 +43,7 @@ public class CodedController {
     @GetMapping("/getContactDetails")
     public ResponseEntity<?> getContactDetails(@RequestParam String name){
         for (int i=0;i<allContact.size();i++){
+            System.out.println(allContact.get(i).toString());
             if (allContact.get(i).getName().equals(name)){
                 return ResponseEntity.ok(allContact.get(i));
             }

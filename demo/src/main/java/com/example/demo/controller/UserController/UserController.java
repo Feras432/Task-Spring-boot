@@ -1,8 +1,8 @@
 package com.example.demo.controller.UserController;
 
-import com.example.demo.service.UserService;
+import com.example.demo.service.user.UserService;
 import com.example.demo.bo.user.CreateUserRequest;
-import com.example.demo.bo.user.UpdateUserRequest;
+import com.example.demo.bo.user.UpdateUserStatusRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,9 +23,9 @@ public class UserController {
         return ResponseEntity.ok("User created successfully");
     }
     @PutMapping("/updatedUserStatus")
-    public ResponseEntity<String> updateUser(@RequestParam Long userId, @RequestBody UpdateUserRequest updateUserRequest){
+    public ResponseEntity<String> updateUser(@RequestParam Long userId, @RequestBody UpdateUserStatusRequest updateUserStatusRequest){
         try {
-            userService.updateUserStatus(userId, updateUserRequest);
+            userService.updateUserStatus(userId, updateUserStatusRequest);
         }catch(IllegalArgumentException e){
 
             return ResponseEntity.badRequest().body(e.getMessage());

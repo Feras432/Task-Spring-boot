@@ -11,9 +11,7 @@ public class UserSettingsEntity {
     private Long id;
     private boolean receiveNewsletter;
     private String preferredLanguage;
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
+
 
     public Long getId() {
         return id;
@@ -38,4 +36,8 @@ public class UserSettingsEntity {
     public void setPreferredLanguage(String preferredLanguage) {
         this.preferredLanguage = preferredLanguage;
     }
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 }

@@ -1,6 +1,6 @@
 package com.example.demo.bo.user;
 
-public class UpdateUserRequest {
+public class UpdateUserStatusRequest {
 
     private String Status;
 
