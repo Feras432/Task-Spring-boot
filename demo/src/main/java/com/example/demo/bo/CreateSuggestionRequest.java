@@ -4,6 +4,8 @@ public class CreateSuggestionRequest {
     private String suggestionText;
     private Long rate;
 
+    private String status;
+
     public String getSuggestionText() {
         return suggestionText;
     }
@@ -18,5 +20,13 @@ public class CreateSuggestionRequest {
 
     public void setRate(Long rate) {
         this.rate = rate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
