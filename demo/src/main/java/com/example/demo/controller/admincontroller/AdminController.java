@@ -13,15 +13,16 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/admin")
 public class AdminController {
-    private final UserRepository userRepository;
+    private final UserService userService;
 
-    public AdminController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-
+    public AdminController(UserService userService) {
+        this.userService = userService;
     }
+
+
     @GetMapping("/users")
-    public ResponseEntity<List<UserEntity>> getUsers(){
-        List<UserEntity> users= userRepository.findAll();
-        return ResponseEntity.ok().body(users);
+    public ResponseEntity<List<String>> getAllUsers(){
+        List<String> users= userService.getAllUsers();
+        return ResponseEntity.ok(users);
     }
 }
